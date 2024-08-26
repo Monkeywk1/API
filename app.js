@@ -1,15 +1,16 @@
 const express = require('express');
-const mongoose = ('mongoose');
+const mongoose = require('mongoose');
 require('dotenv').config();
 const app = express();
 
 /*variable de ambiente para el hosting */
-const port = process.env.port || 9000;
+const port = process.env.PORT || 9000;
 
 /*rutas de la api */
 const mascotaRoute = require("./router/mascotas");
 
 /*middleware api */
+app.use(express.json());
 app.use("/api", mascotaRoute);
 
 /*route basica */
